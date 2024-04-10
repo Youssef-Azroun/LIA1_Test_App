@@ -18,10 +18,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct LIA1_Test_AppApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    // Register the AppDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    @StateObject var authViewModel = AuthViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(authViewModel)
         }
     }
 }
