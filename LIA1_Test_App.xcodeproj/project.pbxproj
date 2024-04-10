@@ -30,6 +30,9 @@
 		31E9E8582BC60E6500DA41EB /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E8572BC60E6500DA41EB /* AuthViewModel.swift */; };
 		31E9E85A2BC60ED300DA41EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E8592BC60ED300DA41EB /* User.swift */; };
 		31E9E85C2BC61CF400DA41EB /* MyAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9E85B2BC61CF400DA41EB /* MyAccountView.swift */; };
+		5F9C66742BC6D3EF006974DC /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66732BC6D3EF006974DC /* Habit.swift */; };
+		5F9C66762BC6D541006974DC /* HabitListVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66752BC6D541006974DC /* HabitListVm.swift */; };
+		5F9C66782BC6DCC3006974DC /* HabitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C66772BC6DCC3006974DC /* HabitListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		31E9E8572BC60E6500DA41EB /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		31E9E8592BC60ED300DA41EB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		31E9E85B2BC61CF400DA41EB /* MyAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountView.swift; sourceTree = "<group>"; };
+		5F9C66732BC6D3EF006974DC /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		5F9C66752BC6D541006974DC /* HabitListVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListVm.swift; sourceTree = "<group>"; };
+		5F9C66772BC6DCC3006974DC /* HabitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,13 +132,9 @@
 		314C12B62BC4AC78009BC923 /* LIA1_Test_App */ = {
 			isa = PBXGroup;
 			children = (
+				5F9C666E2BC6D2D4006974DC /* View */,
+				5F9C666D2BC6D271006974DC /* Model */,
 				314C12B72BC4AC78009BC923 /* LIA1_Test_AppApp.swift */,
-				314C12B92BC4AC78009BC923 /* ContentView.swift */,
-				31E9E8532BC60E1B00DA41EB /* LoginView.swift */,
-				31E9E8552BC60E3500DA41EB /* SignUpView.swift */,
-				31E9E8572BC60E6500DA41EB /* AuthViewModel.swift */,
-				31E9E8592BC60ED300DA41EB /* User.swift */,
-				31E9E85B2BC61CF400DA41EB /* MyAccountView.swift */,
 				314C12E12BC4AEF6009BC923 /* GoogleService-Info.plist */,
 				314C12BB2BC4AC7D009BC923 /* Assets.xcassets */,
 				314C12BD2BC4AC7D009BC923 /* Preview Content */,
@@ -163,6 +165,29 @@
 				314C12D42BC4AC7E009BC923 /* LIA1_Test_AppUITestsLaunchTests.swift */,
 			);
 			path = LIA1_Test_AppUITests;
+			sourceTree = "<group>";
+		};
+		5F9C666D2BC6D271006974DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				31E9E8572BC60E6500DA41EB /* AuthViewModel.swift */,
+				31E9E8592BC60ED300DA41EB /* User.swift */,
+				5F9C66732BC6D3EF006974DC /* Habit.swift */,
+				5F9C66752BC6D541006974DC /* HabitListVm.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F9C666E2BC6D2D4006974DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				31E9E85B2BC61CF400DA41EB /* MyAccountView.swift */,
+				31E9E8552BC60E3500DA41EB /* SignUpView.swift */,
+				31E9E8532BC60E1B00DA41EB /* LoginView.swift */,
+				314C12B92BC4AC78009BC923 /* ContentView.swift */,
+				5F9C66772BC6DCC3006974DC /* HabitListView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,11 +337,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				31E9E8582BC60E6500DA41EB /* AuthViewModel.swift in Sources */,
+				5F9C66782BC6DCC3006974DC /* HabitListView.swift in Sources */,
 				31E9E8562BC60E3500DA41EB /* SignUpView.swift in Sources */,
+				5F9C66762BC6D541006974DC /* HabitListVm.swift in Sources */,
 				31E9E85A2BC60ED300DA41EB /* User.swift in Sources */,
 				31E9E85C2BC61CF400DA41EB /* MyAccountView.swift in Sources */,
 				31E9E8542BC60E1C00DA41EB /* LoginView.swift in Sources */,
 				314C12BA2BC4AC78009BC923 /* ContentView.swift in Sources */,
+				5F9C66742BC6D3EF006974DC /* Habit.swift in Sources */,
 				314C12B82BC4AC78009BC923 /* LIA1_Test_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

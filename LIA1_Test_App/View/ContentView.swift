@@ -50,11 +50,33 @@ struct ContentView: View {
                             .padding()
                     }
                     Spacer()
-                    
+                    if authViewModel.isUserAuthenticated {
+                        HabitListView()
+                            .padding()
+                    }
                 }
             }
         }
         
+    }
+}
+
+struct RowView: View {
+    let habit : Habit
+    let vm : HabitListVm
+    
+    var body: some View {
+        
+        HStack {
+            Text(habit.ItemName)
+            Spacer()
+            Button(action: {
+                vm.toggle(habit: habit)
+            }){
+                Image(systemName: habit.done ? "checkmark.circle.fill" : "circle")
+                    .foregroundColor(Color.black)
+            }
+        }
     }
 }
 
