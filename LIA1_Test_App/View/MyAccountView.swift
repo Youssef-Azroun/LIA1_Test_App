@@ -9,7 +9,9 @@ import SwiftUI
 
 struct MyAccountView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
-    
+    @State private var isEditingUsername = false
+    @State private var newUsername = ""
+
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.green, Color.green.opacity(0.5), Color.white]), startPoint: .top, endPoint: .bottom)
@@ -30,6 +32,19 @@ struct MyAccountView: View {
                                 Image(systemName: "person.fill")
                                     .foregroundColor(.gray)
                                 Text("Name: \(authViewModel.user?.name ?? "N/A")")
+                                Button(action: { self.isEditingUsername.toggle() }) {
+                                    Image(systemName: "pencil")
+                                        .foregroundColor(.gray)
+                                        .font(.system(size: 24)) // Adjust the size as needed
+                                }
+                            }
+                            if isEditingUsername {
+                                TextField("New username", text: $newUsername)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                Button("Update") {
+                                    authViewModel.updateUsername(newUsername: newUsername)
+                                    self.isEditingUsername = false
+                                }
                             }
                             HStack {
                                 Image(systemName: "envelope.fill")

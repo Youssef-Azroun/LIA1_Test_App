@@ -48,6 +48,24 @@ struct ContentView: View {
                     if authViewModel.isUserAuthenticated {
                         Text("Welcome, \(authViewModel.user?.name ?? "User")!")
                             .padding()
+                    } else {
+                        VStack {
+                            Spacer()
+                            Image(systemName: "list.bullet")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(.orange)
+                            Text("Welcome to Habit List!")
+                                .font(.largeTitle)
+                                .foregroundColor(.orange)
+                            Text("Track your habits efficiently. Please log in to your account to get started.")
+                                .font(.headline)
+                                .foregroundColor(.gray)
+                                .multilineTextAlignment(.center)
+                                .padding()
+                            Spacer()
+                        }
                     }
                     Spacer()
                     if authViewModel.isUserAuthenticated {

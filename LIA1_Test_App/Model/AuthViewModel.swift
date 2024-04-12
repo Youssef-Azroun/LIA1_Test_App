@@ -108,4 +108,18 @@ class AuthViewModel: ObservableObject {
             print("Error signing out: %@", signOutError)
         }
     }
+    
+    func updateUsername(newUsername: String) {
+        guard let user = Auth.auth().currentUser else { return }
+        // Update username in your backend, e.g., Firestore
+        let db = Firestore.firestore()
+        db.collection("users").document(user.uid).updateData(["name": newUsername]) { error in
+            if let error = error {
+                print("Error updating username: \(error)")
+            } else {
+                self.user?.name = newUsername
+                print("Username successfully updated")
+            }
+        }
+    }
 }
