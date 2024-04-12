@@ -88,6 +88,7 @@ struct RowView: View {
         HStack {
             Text(habit.ItemName)
             Spacer()
+            Text(habit.streak == 0 ? "" : String(habit.streak))
             Button(action: {
                 vm.toggle(habit: habit)
             }){
