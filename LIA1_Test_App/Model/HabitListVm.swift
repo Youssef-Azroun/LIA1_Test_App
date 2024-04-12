@@ -27,9 +27,31 @@ class HabitListVm : ObservableObject {
                 if habit.latest != date {
                     habitRef.document(id).updateData(["latest" : date])
                 }
+                let newStreak = habit.streak + 1
+                habitRef.document(id).updateData(["streak" : newStreak])
             }
         }
     }
+    
+    func updateStreak(habit: Habit) {
+        guard let user = auth.currentUser else {return }
+        let habitRef = db.collection("users").document(user.uid).collection("habits")
+        
+        let calendar = Calendar.current
+        let today = Date()
+        var newStreak = habit.streak
+        
+        if let dayDifference = calendar.dateComponents([.day], from: habit.latest ?? today, to: today).day {
+            if dayDifference > 1 {
+                newStreak = 0
+                
+                if let id = habit.id{
+                    habitRef.document(id).updateData(["streak" : newStreak])
+                }
+            }
+        }
+    }
+    
     
     func saveToFirestore(habitName: String) {
         guard let user = auth.currentUser else {return}
@@ -71,6 +93,7 @@ class HabitListVm : ObservableObject {
                                 habit.done = false
                             }
                         }
+                        self.updateStreak(habit: habit)
                         self.habits.append(habit)
                     } catch {
                         print("Error reading from db")
